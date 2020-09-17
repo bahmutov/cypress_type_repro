@@ -44,20 +44,20 @@ describe("type repro", () => {
     });
   });
 
-  it("should allow for custom column formulas", () => {
+  it.only("should allow for custom column formulas", () => {
     // go straight to "orders" in custom questions
     cy.visit("/question/new?database=1&table=2&mode=notebook");
     cy.get(".Icon-add_data").click();
     popover().within(() => {
       cy.get("[contenteditable='true']").type("1 + 1");
       cy.findByPlaceholderText("Something nice and descriptive")
-        .click()
-        .type("Simple math", { delay: 100 });
-      cy.findByText("Done").click();
+        // .click()
+      //   .type("Simple math", { delay: 100 });
+      // cy.findByText("Done").click();
     });
   });
 
-  it("should allow for custom column formulas", () => {
+  it.skip("should allow for custom column formulas", () => {
     // go straight to "orders" in custom questions
     cy.visit("/question/new?database=1&table=2&mode=notebook");
     cy.get(".Icon-add_data").click();
