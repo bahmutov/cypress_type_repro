@@ -56,3 +56,23 @@ cy.findByPlaceholderText("Something nice and descriptive")
 cy.get("[contenteditable='true']").type("1+1+1+1+1+1");
 cy.get('input.my1').click()
 ```
+
+- if we add a pause of 500 before getting the input field the test reliably passes
+
+```js
+cy.wait(500)
+cy.get("[contenteditable='true']").type("1+1+1+1+1+1")
+cy.get('input.my1').click()
+```
+
+![wait 500 test passes](images/wait-500.gif)
+
+- when using `cy.wait(400)` the test sometimes passes, sometimes fails (and is a good candidate for [test retries](https://on.cypress.io/test-retries))
+
+```js
+cy.wait(400)
+cy.get("[contenteditable='true']").type("1+1+1+1+1+1")
+cy.get('input.my1').click()
+```
+
+![wait 400 test passes](images/wait-400.gif)
