@@ -49,8 +49,9 @@ describe("type repro", () => {
     cy.visit("/question/new?database=1&table=2&mode=notebook");
     cy.get(".Icon-add_data").click();
     popover().within(() => {
-      cy.get("[contenteditable='true']").type("1 + 1");
-      cy.findByPlaceholderText("Something nice and descriptive")
+      cy.get("[contenteditable='true']").type("1+1+1+1+1+1");
+      cy.get('input.my1').click()
+      // cy.findByPlaceholderText("Something nice and descriptive")
         // .click()
       //   .type("Simple math", { delay: 100 });
       // cy.findByText("Done").click();
